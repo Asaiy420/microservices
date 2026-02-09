@@ -6,6 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(express.urlencoded());
 
 app.get('/', (req: Request, res: Response) => {
   res.send('User service is up and running!');
