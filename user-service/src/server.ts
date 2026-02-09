@@ -56,11 +56,20 @@ app.post('/users', async (req: Request, res: Response) => {
     return;
   } catch (e: unknown) {
     console.error('Error when creating a user', e);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
-
+app.get('/users', async (req: Request, res: Response) => {
+  try {
+    const listUsers = await User.find();
+    res.status(200).json({message: "All Users haven been lsited", listUsers })
+    return;
+  } catch (e: unknown) {
+    console.error('Error when fetching users', e);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 app.get('/', (req: Request, res: Response) => {
   res.send('User service is up and running!');
