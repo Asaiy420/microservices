@@ -39,8 +39,6 @@ const userSchema = new mongoose.Schema<IUser>({
 
 const User = mongoose.model('User', userSchema);
 
-// Defining User Routes here
-
 app.post('/users', async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
