@@ -42,7 +42,6 @@ const User = mongoose.model('User', userSchema);
 app.post('/users', async (req: Request, res: Response) => {
   try {
     const { name, email } = req.body;
-
     if (!name || !email) {
       res.status(400).json({ message: 'Name and Email are required' });
       return;
