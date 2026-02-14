@@ -36,7 +36,6 @@ const userSchema = new mongoose.Schema<IUser>({
     trim: true,
   },
 });
-
 const User = mongoose.model('User', userSchema);
 app.post('/users', async (req: Request, res: Response) => {
   try {
@@ -55,7 +54,6 @@ app.post('/users', async (req: Request, res: Response) => {
     return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 app.get('/users', async (req: Request, res: Response) => {
   try {
     const listUsers = await User.find();
