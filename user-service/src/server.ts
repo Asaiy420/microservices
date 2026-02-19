@@ -24,7 +24,6 @@ const conn = async () => {
 };
 
 // Creating User Schema Here; Will do everything in this file no different file structure
-
 const userSchema = new mongoose.Schema<IUser>({
   name: {
     type: String,
